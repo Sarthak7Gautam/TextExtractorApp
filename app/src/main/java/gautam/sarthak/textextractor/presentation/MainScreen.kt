@@ -63,7 +63,7 @@ fun MainScreen(viewModel: MainViewModel= hiltViewModel()) {
                         Text(text = "Start Camera")
                     }
                 Button(onClick = { galleryLauncher.launch("image/*") }) {
-                    Text(text = "Start Camera")
+                    Text(text = "Open Gallery")
                 }
             }
         }
