@@ -28,13 +28,13 @@ fun MainScreen(viewModel: MainViewModel= hiltViewModel()) {
 
     val text= viewModel.extractedText.collectAsState().value
 
-    val galleryLauncher= rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent() ,
-        onResult = {
-            if (it != null) {
-                viewModel.getTextFromSelectedImage(it)
-            }
-        })
+    val galleryLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) {
+        if (it != null) {
+            viewModel.getTextFromSelectedImage(it)
+        }
+    }
 
     val cameraLauncher= rememberLauncherForActivityResult(
         contract = ActivityResultContracts.TakePicturePreview(),
